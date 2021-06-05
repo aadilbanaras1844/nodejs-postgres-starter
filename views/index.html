@@ -1,0 +1,19 @@
+
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        Welcome
+        <script src="/javascripts/socket.io.js"></script>
+        <script>
+            var socket = io();
+            socket.emit('join',{});
+            
+            socket.on('alert', (message, callback) => {
+                alert(message)
+            });
+        </script>
+    </body>
+</html>

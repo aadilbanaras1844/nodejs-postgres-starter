@@ -18,7 +18,7 @@ module.exports.delete = async(id) => {
         }
       });
 }
-module.exports.list = async(query,limit,offset, sortBy, showWithOffices=false) => {
+module.exports.list = async(query,limit,offset, sortBy, showWithOffices='false') => {
     return TowersModel.findAndCountAll({
         where: {
             ...query,
