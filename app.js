@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var { errorHandlerHandler } = require('./utils')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
@@ -25,10 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/towers', towersRouter);
-app.use('/offices', officesRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/towers', towersRouter);
+app.use('/api/offices', officesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -36,7 +39,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   console.log(err)
   return res.status(err.status || 500).json({message: err.message,status:err.status || 500});
 });
