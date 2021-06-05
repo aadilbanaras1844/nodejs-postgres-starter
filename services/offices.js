@@ -9,7 +9,6 @@ module.exports.update = async(id, params) => {
           id
         }
       });
-    return {};
 }
 module.exports.delete = async(id) => {
     return OfficesModel.destroy({
@@ -17,13 +16,4 @@ module.exports.delete = async(id) => {
             id
         }
       });
-}
-module.exports.list = async(query,limit,offset, sortBy) => {
-    return OfficesModel.findAndCountAll({
-        where: {
-            ...query,
-        },
-        limit,
-        offset,
-    });
 }

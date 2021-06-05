@@ -31,6 +31,7 @@ module.exports.listTowers = Joi.object({
     latitude: Joi.number(),
     longitude: Joi.number(),
     sortBy: Joi.string(),
+    sortType: Joi.string(),
     limit: Joi.number(),
     offset: Joi.number(),
     'show-with-offices': Joi.boolean()

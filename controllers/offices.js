@@ -1,7 +1,7 @@
 const { resHandler } = require('../utils')
 const { officeService } = require('../services')
 
-module.exports.createOffice = async (req, res, next) => {
+module.exports.createOffice = async (req, res) => {
     const params = req.body;
     try {
         const office = await officeService.create(params);

@@ -1,14 +1,14 @@
 
 class CustomError extends Error {
-    constructor({ message, code = 500 }) {
-      super(message);
-      this.message = message;
-      this.status = code;
-    }
+  constructor({ message, code = 500 }) {
+    super(message);
+    this.message = message;
+    this.status = code;
   }
-  const jwt = require('jsonwebtoken');
+}
+const jwt = require('jsonwebtoken');
 
-  var cache = require('memory-cache');
+var cache = require('memory-cache');
 var memCache = new cache.Cache();
 const keys = require('../../config/keys')
 
@@ -58,6 +58,7 @@ const validationMiddleware = (validationObject, isGet = false) => (req, res, nex
 
     try {
       const decodedToken = jwt.verify(token, keys.jwtSecret);
+      req.user = decodedToken;
       return next();
     } catch (error) {
       return next(new CustomError({

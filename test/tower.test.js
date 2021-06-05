@@ -1,5 +1,5 @@
 
-const { towerService, officeService } = require('../services');
+const { towerService } = require('../services');
 const { expect } = require('chai');
 
 const assert = require('assert');

@@ -9,7 +9,6 @@ module.exports.update = async(id, params) => {
           id
         }
       });
-    return {};
 }
 module.exports.delete = async(id) => {
     return TowersModel.destroy({
@@ -18,7 +17,7 @@ module.exports.delete = async(id) => {
         }
       });
 }
-module.exports.list = async(query,limit,offset, sortBy, showWithOffices='false') => {
+module.exports.list = async(query,limit,offset, sortBy, showWithOffices='false', sortType) => {
     return TowersModel.findAndCountAll({
         where: {
             ...query,
@@ -28,6 +27,7 @@ module.exports.list = async(query,limit,offset, sortBy, showWithOffices='false')
             as: 'allOffices',
             required: showWithOffices === 'true'
         }],
+        order: [[sortBy, sortType]],
         limit,
         offset,
     });

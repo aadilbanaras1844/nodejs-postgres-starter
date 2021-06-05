@@ -35,8 +35,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
-app.use(function(err, req, res) {
-  console.log(err)
+app.use(function(err, req, res, next) {
   return res.status(err.status || 500).json({message: err.message,status:err.status || 500});
 });
 

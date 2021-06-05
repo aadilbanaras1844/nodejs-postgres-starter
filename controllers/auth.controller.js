@@ -2,7 +2,7 @@
 const { userService } = require('../services');
 const { resHandler } = require('../utils')
 
-module.exports.login = async (req, res ,next)=> {
+module.exports.login = async (req, res)=> {
     const {username, password} = req.body;
     
     try {

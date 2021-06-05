@@ -8,7 +8,7 @@ const initSocket = (server) => {
   }
   if (io) {
       io.on('connect', (socket) => {
-        socket.on('join', async ({ }, callback) => {
+        socket.on('join', () => {
           socket.join('alert');
         });
         socket.on('disconnect', () => {
