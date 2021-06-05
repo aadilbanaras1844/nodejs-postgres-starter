@@ -9,7 +9,7 @@
     "undo-migration": "npx sequelize-cli db:migrate:undo",
     "seed": "npx sequelize-cli db:seed:all",
     "undo-seed": "",
-    "jjjjpretest": "npm run migration",
+    "pretest": "npm run migration",
     "test": "mocha"
   },
   "dependencies": {
