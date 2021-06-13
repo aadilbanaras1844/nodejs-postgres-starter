@@ -1,4 +1,4 @@
-# Nodejs Task
+# Nodejs Demo
 #### Project created through express generator
 #### Sequelize used for database migrations & seeding, 
 #### Apis docs added in file as well as here on this link https://documenter.getpostman.com/view/1862163/TzY4gvfy
